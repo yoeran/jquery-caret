@@ -1,3 +1,12 @@
+# patbenatar's fork of jQuery Caret
+
+This fork adds the insertAtCaret function to insert text at the current caret
+position.
+
+```js
+$("textarea").insertAtCaret("mytext");
+```
+
 # jQuery Caret
 
 This is a very simple lightweight plugin to allow you to move the
