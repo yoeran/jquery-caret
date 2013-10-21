@@ -103,5 +103,39 @@
         }
     };
 
+    $.fn.replaceAtCaret = function(myValue) {
+        var obj;
+        if( typeof this[0].name !='undefined' ) obj = this[0];
+        else obj = this;
+
+        if (document.selection) {
+            obj.focus();
+            sel = document.selection.createRange();
+            sel.text = myValue.replace('%%', sel);
+            obj.focus();
+        }
+        else if (obj.selectionStart || obj.selectionStart == '0') {
+            var startPos    = obj.selectionStart,
+                endPos      = obj.selectionEnd,
+                scrollTop   = obj.scrollTop,
+                parts = [
+                    obj.value.substring(0, startPos),
+                    obj.value.substring(startPos, endPos),
+                    obj.value.substring(endPos,obj.value.length)
+                ];
+
+            parts[1] = myValue.replace('%%', parts[1]);
+
+            obj.value = parts.join('');
+            obj.focus();
+            obj.selectionStart  = startPos + myValue.length;
+            obj.selectionEnd    = startPos + myValue.length;
+            obj.scrollTop       = scrollTop;
+        } else {
+            obj.value += myValue;
+            obj.focus();
+        }
+    };
+
 
 }(jQuery));
