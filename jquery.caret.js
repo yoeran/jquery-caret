@@ -88,7 +88,7 @@
             sel.text = myValue;
             obj.focus();
         }
-        else if (this.selectionStart || this.selectionStart == '0') {
+        else if (obj.selectionStart || obj.selectionStart == '0') {
             var startPos = obj.selectionStart;
             var endPos = obj.selectionEnd;
             var scrollTop = obj.scrollTop;
