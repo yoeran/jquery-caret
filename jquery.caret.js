@@ -82,13 +82,13 @@
         if( typeof this[0].name !='undefined' ) obj = this[0];
         else obj = this;
 
-        if ($.browser.msie) {
+        if (document.selection) {
             obj.focus();
             sel = document.selection.createRange();
             sel.text = myValue;
             obj.focus();
         }
-        else if ($.browser.mozilla || $.browser.webkit) {
+        else if (this.selectionStart || this.selectionStart == '0') {
             var startPos = obj.selectionStart;
             var endPos = obj.selectionEnd;
             var scrollTop = obj.scrollTop;
@@ -101,7 +101,7 @@
             obj.value += myValue;
             obj.focus();
         }
-    }
+    };
 
 
 }(jQuery));
