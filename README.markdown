@@ -1,20 +1,8 @@
-# patbenatar's fork of jQuery Caret
-
-This fork adds the insertAtCaret function to insert text at the current caret
-position.
-
-```js
-$("textarea").insertAtCaret("mytext");
-```
-
 # jQuery Caret
 
 This is a very simple lightweight plugin to allow you to move the
 caret (or cursor) position in an &lt;input /&gt; or &lt;textarea&gt;
-element.
-
-By exposing three jQuery.fn methods you can easily move a a caret to
-any position you like:
+element and/or modify text according to position and selection.
 
 ## $.fn.caret()
 
@@ -50,9 +38,28 @@ element, also for your convenience.
 $('input').caretToEnd();
 ```
 
-## Author
+## $.fn.insertAtCaret()
 
-Luke Morton
+This method inserts text at the current caret position.
+
+```javascript
+$('textarea').insertAtCaret('text');
+```
+
+## $.fn.replaceAtCaret()
+
+This method replaces the selected text and will be maintained if you add two % signs in your string.
+You could use this to surround a selected text with <strong>-tags (or MarkDown codes).
+
+```javascript
+$('textarea').replaceAtCaret('<strong>%%</strong>');
+```
+
+## Author(s)
+
+* Luke Morton ([original](https://github.com/DrPheltRight/jquery-caret))
+* Pat Benatar ([insertAtCaret fn](https://github.com/patbenatar/jquery-caret))
+* Yoeran Luteijn ([replaceAtCaret fn](https://github.com/yoeran/jquery-caret))
 
 ## License
 
